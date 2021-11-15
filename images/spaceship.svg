@@ -1,0 +1,24 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <path fill="#8e8e8e" stroke="#000" stroke-width="0" d="m344.83871,483.87097c-21.93548,10.96774 -36.77419,67.09677 -36.77419,66.45161c0,0.64516 56.77419,-14.19355 93.54839,-14.19355c36.77419,0 92.90323,12.25806 92.90323,12.25806c0,0 -20,-53.54839 -49.67742,-63.87097c-29.67742,-10.32258 -78.06452,-11.6129 -100,-0.64516l-0.00001,0.00001z" id="svg_25"/>
+  <ellipse id="svg_6" cy="292" cx="734" opacity="NaN" stroke="#000" fill="#fff"/>
+  <ellipse id="svg_7" cy="293" cx="759" opacity="NaN" stroke="#fff" fill="#000"/>
+  <rect id="svg_8" height="0" width="0" y="339" x="747" opacity="NaN" stroke="#fff" fill="#000"/>
+  <rect id="svg_9" height="0" width="0" y="489" x="714" opacity="NaN" stroke="#fff" fill="#000"/>
+  <rect id="svg_10" height="0" width="0" y="489" x="714" opacity="NaN" stroke="#fff" fill="#000"/>
+  <ellipse id="svg_2" cy="425.56344" cx="787.73623" opacity="NaN" fill="#fff" stroke="#000"/>
+  <ellipse id="svg_3" cy="365.63223" cx="868.72435" opacity="NaN" fill="#fff" stroke="#000"/>
+  <ellipse id="svg_4" cy="441.76106" cx="769.91884" opacity="NaN" fill="#fff" stroke="#000"/>
+  <ellipse id="svg_5" cy="566.48277" cx="789.35599" opacity="NaN" fill="#fff" stroke="#000"/>
+  <path id="svg_11" d="m765.05955,592.39897" opacity="NaN" fill="#000" stroke="#fff"/>
+  <path fill="#afafff" stroke-width="0" opacity="NaN" d="m57.22336,187.45836" id="svg_13" stroke="#000"/>
+  <path fill="#eae1c2" stroke-width="0" opacity="NaN" d="m638.71808,401.267" id="svg_15" stroke="#000"/>
+  <path fill="none" stroke="#000" opacity="NaN" d="m413,190" id="svg_17"/>
+  <path fill="#c63333" stroke="#000" d="m363.73589,544.34295c-7.42106,-21.10526 -43.42106,-107.05263 -28.42106,-204.05263c15,-97 60.48387,-137.35484 64.06452,-137.35484c3.58065,0 46.70574,34.92176 64.05668,135.38511c17.35094,100.46335 -18.05374,185.48093 -24.11436,206.00883l-75.58578,0.01353z" id="svg_18" stroke-width="0"/>
+  <path fill="none" stroke="#000" opacity="NaN" d="m304,528" id="svg_19"/>
+  <ellipse fill="#8e8e8e" stroke="#000" stroke-width="0" cx="400.00001" cy="317.74194" id="svg_22" rx="31.93548" ry="31.93548"/>
+  <ellipse fill="#070923" stroke="#000" stroke-width="0" cx="400" cy="317.74194" id="svg_24" rx="27.41935" ry="27.41935"/>
+ </g>
+
+</svg>

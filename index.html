@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bardia Eghbali</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script type="text/javascript" src="main.js" defer></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar" style="display: none;">
+    <button id="back">&#x2715</button>
+    <span>Projects</span>
+    <button id="prev"><</button>
+    <div class="progress">
+      <button id="progress-goto-planet"></button>
+      <button id="progress-goto-broadcaster"></button>
+      <button id="progress-goto-linn"></button>
+      <button id="progress-goto-red-estate"></button>
+    </div>
+    <button id="next">></button>
+  </div>
+  <!-- Each following `div` correspond to one image -->
+  <!-- The images will be set using CSS backgrounds -->
+  <div class="astro-flag">
+    <div class="contact">
+      <a href="https://www.linkedin.com/in/bardia-eghbali-b46405194/">
+        <img src="images/icons/linkedin.svg">
+      </a>
+      <a href="https://sadmanbrad.itch.io/">
+        <img src="images/icons/itchio.svg">
+      </a>
+      <a href="mailto:bardia.eghbali@gmail.com">
+        <img src="images/icons/gmail.svg">
+      </a>
+      <a href="https://twitter.com/sadmanbrad">
+        <img src="images/icons/twitter.svg">
+      </a>
+    </div>
+  </div>
+  <div class="my-name-is">
+    <h2>
+      Hi, I'm Bardia
+    </h2>
+    <h3>
+      and I make games
+    </h3>
+  </div>
+  <div class="rocket-ship">
+  </div>
+  <button id="goto-planet">Explore My Projects ></button>
+  <div class="planet"> 
+    <section id="spaced_out" class="custom-scrollbar">
+      <div>
+      <h3>Spaced_Out</h3>
+      <h6>September 2017</h6>
+      <p>Spaced_Out was born in a one-week game jam. This was almost the first game I completed, except the totally awesome flash game I made back when I was a kid called Jack the Ghost!<br>It features an inventory system with a crafting system and looting, and also some aliens to shoot.</p>
+      <img src="images/spaced_out/1.png">
+      <div class="image-wrapper">
+        <img src="images/spaced_out/2.png">
+        <img src="images/spaced_out/3.png">
+        <img src="images/spaced_out/4.png">
+      </div>
+      <p><a href="">Check out Spaced_Out on my itch.io page.</a></p>
+      <div>
+        <button id="goto-broadcaster">Next ></button>
+      </div>
+      </div>
+    </section>
+  </div>
+  <div class="star">
+    <div class="star-pulse">
+    </div>
+    <div class="star-pulse" style="animation-delay: 0.2s;">
+    </div>
+    <div class="star-pulse" style="animation-delay: 0.4s;">
+    </div>
+  </div>
+  <div class="broadcaster-wrapper">
+    <section id="broadcaster" class="custom-scrollbar light">
+      <div>
+      <h3>Broadcaster</h3>
+      <h6>January 2018</h6>
+      <p>Broadcaster is a puzzle game that challenges players to think about how their actions affect others. This short game was created over the course of 48 hours during Global Game Jam 2018. </p>
+      <img src="images/Broadcaster/broadcaster.png">
+      <p><a href="https://globalgamejam.org/2018/games/broadcaster-0">See Broadcaster on the official Global Game Jam website.</a></p>
+      </div>
+      <div>
+        <button id="goto-linn">Next ></button>
+      </div>
+    </section>
+  </div>
+  <div class="linn-wrapper">
+    <div class="floating-astro"></div>
+    <section id="linn" class="custom-scrollbar light">
+      <div>
+      <h3>Linn: Path of Orchards</h3>
+      <h6>January 2019</h6>
+      <p>It is an honor to be a part of Linn and the fantastic Fanoos Games crew. Linn: Path of Orchards is a fast-paced puzzle platformer with a twist, quite literally. </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dxN-Bb84D5s?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>With over 4000 features in the year of launch, Linn achieved major success on the App Store where it was initially published. Linn is now available on all console and mobile platforms. This was an amazing opportunity and a wonderful experience for me.</p>
+      </div>
+      <div>
+        <button id="goto-red-estate">Next ></button>
+      </div>
+    </section>
+  </div>
+  <div class="red-estate-wrapper">
+    <section id="the-red-estate" class="custom-scrollbar light">
+      <div>
+      <h3>The Red Estate</h3>
+      <h6>Early 2020</h6>
+      <p>This escape room experience started as a hobby project during the early days of the pandemic. It was my first attempt at realistic 3D graphics and also an experiment to see how much realism I can acheive in the Unity game engine and in the assets that I create. </p>
+      <img src="images/the_red_estate/1.png">
+      <div class="image-wrapper">
+        <img src="images/the_red_estate/2.png">
+        <img src="images/the_red_estate/3.png">
+        <img src="images/the_red_estate/4.png">
+        <img src="images/the_red_estate/5.png">
+      </div>
+      <p>Later on I used this project as a basis to test the use of mobile phone sensors for controlling computer games in new ways (a university project) and a multiplayer virtual escape room prototype. Both of these projects are not publicly published. If you're interested to know more about these variants of The Red Estate, feel free to contact me for the details and builds. <br><a href="https://sadmanbrad.itch.io/the-red-estate">The standard singleplayer version of The Red Estate is available on itch.io.</a> This project has been on hold since summer 2020, but there is more to come.</p>
+      </div>
+    </section>
+  </div>
+</div>
+<div id="rotate-device">
+  <div></div>
+</div>
+<!-- <div class="scroll-catcher">
+  <div id="fake-scroll">s</div>
+</div> -->
+<!-- <div class="control-bar">
+  <button id="prev"><</button>
+  <button id="next">></button>
+</div> -->
+</body>
+</html>
