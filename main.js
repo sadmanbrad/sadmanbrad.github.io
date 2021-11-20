@@ -61,6 +61,10 @@ if (iOSChromeDetected) {
     return t * (2 - t)
   }
 
+  function easeOutExponential (x) {
+    return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+  }
+
   // Returns a random number (integer) between `min` and `max`
   function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -69,6 +73,12 @@ if (iOSChromeDetected) {
   function lerpClamp (min, max, t, tmin, tmax) {
     t = t > tmax ? tmax : ((tmin > t) ? tmin : t);
     return (t - tmin)/(tmax - tmin) * (max - min) + min;
+  }
+
+  function easeLerpClamp (min, max, t, tmin, tmax) {
+    t = t > tmax ? tmax : ((tmin > t) ? tmin : t);
+    t = (t - tmin)/(tmax - tmin);
+    return easeOutQuad(t) * (max - min) + min;
   }
 
   // Returns a random number as well, but it could be negative also
@@ -149,17 +159,22 @@ if (iOSChromeDetected) {
     }
   }
 
+  var animation_start_time = -1;
+  var animation_start_target = 0;
+
   // Do calculations and apply CSS `transform`s accordingly
-  function updateAnimation () {
+  function updateAnimation (timestamp) {
+    console.log(timestamp, current);
     // Difference between `target` and `current` scroll position
     var diff = target - current
     // `delta` is the value for adding to the `current` scroll position
     // If `diff < 0.1`, make `delta = 0`, so the animation would not be endless
-    var delta = Math.abs(diff) < 0.1 ? 0 : diff * ease
 
-    if (delta) { // If `delta !== 0`
+    if (Math.abs(diff) > 1) { // If `delta !== 0`
       // Update `current` scroll position
-      current += delta
+      if (animation_start_time === -1)
+        animation_start_time = timestamp;
+      current = easeLerpClamp(animation_start_target, target, timestamp, animation_start_time, animation_start_time + 2000)
       // Round value for better performance
       current = parseFloat(current.toFixed(2))
       // Call `update` again, using `requestAnimationFrame`
@@ -169,6 +184,8 @@ if (iOSChromeDetected) {
       current = target
       rafActive = false
       cancelAnimationFrame(rafId)
+      animation_start_target = current;
+      animation_start_time = -1;
     }
 
     // Update images
@@ -191,28 +208,28 @@ if (iOSChromeDetected) {
     if (current <= 2200) {
       var scaleAmount = lerpClamp(1, 1.2, current, 0, 1000)
       setTransform(astroflag, 'translateY('+ -translateX +'px) translateX('+ translateX/2 +'px) scaleX('+scaleAmount+') scaleY('+scaleAmount+')')
-      planet.style.width = 'calc(' + lerpClamp(20, 0, current, 400, 2200) +'em + '
-                                  + lerpClamp(0, 100, current, 400, 2200) +'vw)';
-      planet.style.height = 'calc(' + lerpClamp(20, 0, current, 400, 2200) +'em + '
-                                  + lerpClamp(0, 100, current, 400, 2200) +'vw)';
-      planet.style.bottom = 'calc(' + lerpClamp(25, 50, current, 400, 2200) + '% - '
-                                + lerpClamp(20, 0, current, 400, 2200)/2 +'em - '
-                                + lerpClamp(0, 100, current, 400, 2200)/2 +'vw)'
-      planet.style.left = lerpClamp(70, 40, current, 400, 2200) +'%';
-      rocketship.style.width = lerpClamp(10, 40, current, 0, 2200) +'em';
-      rocketship.style.height = lerpClamp(10, 40, current, 0, 2200) +'em';
-      rocketship.style.right = 'calc(' + lerpClamp(100, 60, current, 0, 2200) + '% - '
-                                + lerpClamp(10, 40, current, 0, 2200)/2 +'em)';
-      rocketship.style.top = 'calc(' + lerpClamp(100, 50, current, 0, 2200) +'% - ' 
-                                + lerpClamp(10, 40, current, 0, 2200)/2 +'em)';
-      setTransform(rocketship, 'rotate('+ lerpClamp(45, 70, current, 0, 2200) +'deg)');
+      planet.style.width = 'calc(' + lerpClamp(20, 0, current, 400, 1800) +'em + '
+                                  + lerpClamp(0, 100, current, 400, 1800) +'vw)';
+      planet.style.height = 'calc(' + lerpClamp(20, 0, current, 400, 1800) +'em + '
+                                  + lerpClamp(0, 100, current, 400, 1800) +'vw)';
+      planet.style.bottom = 'calc(' + lerpClamp(25, 50, current, 400, 1800) + '% - '
+                                + lerpClamp(20, 0, current, 400, 1800)/2 +'em - '
+                                + lerpClamp(0, 100, current, 400, 1800)/2 +'vw)'
+      planet.style.left = lerpClamp(70, 40, current, 400, 1800) +'%';
+      rocketship.style.width = lerpClamp(10, 40, current, 0, 1800) +'em';
+      rocketship.style.height = lerpClamp(10, 40, current, 0, 1800) +'em';
+      rocketship.style.right = 'calc(' + lerpClamp(100, 60, current, 0, 1800) + '% - '
+                                + lerpClamp(10, 40, current, 0, 1800)/2 +'em)';
+      rocketship.style.top = 'calc(' + lerpClamp(100, 50, current, 0, 1800) +'% - ' 
+                                + lerpClamp(10, 40, current, 0, 1800)/2 +'em)';
+      setTransform(rocketship, 'rotate('+ lerpClamp(45, 70, current, 0, 1800) +'deg)');
       spaced_out_wrapper.style.opacity = 0;
     }
 
-    if (current > 2200 && current <= 2400) {
-      planet.style.left = lerpClamp(40, 10, current, 2200, 2400) +'%';
-      rocketship.style.right = 'calc(' + lerpClamp(60, 90, current, 2200, 2400) + '% - 20em)';
-      spaced_out_wrapper.style.opacity = lerpClamp(0, 1, current, 2200, 2400);
+    if (current > 1800 && current <= 2400) {
+      planet.style.left = lerpClamp(40, 10, current, 1800, 2400) +'%';
+      rocketship.style.right = 'calc(' + lerpClamp(60, 90, current, 1800, 2400) + '% - 20em)';
+      spaced_out_wrapper.style.opacity = lerpClamp(0, 1, current, 1800, 2400);
     }
 
     if (current > 2400 && current <= 3500) {
@@ -323,6 +340,8 @@ if (iOSChromeDetected) {
     $('#progress-goto-linn').removeClass('current');
     $('#progress-goto-red-estate').removeClass('current');
     current_pos_index = 0;
+    animation_start_target = current;
+    animation_start_time = -1;
   }
 
   function goto_broadcaster() {
@@ -333,6 +352,8 @@ if (iOSChromeDetected) {
     $('#progress-goto-linn').removeClass('current');
     $('#progress-goto-red-estate').removeClass('current');
     current_pos_index = 1;
+    animation_start_target = current;
+    animation_start_time = -1;
   }
 
   function goto_linn() {
@@ -343,6 +364,8 @@ if (iOSChromeDetected) {
     $('#progress-goto-linn').addClass('current');
     $('#progress-goto-red-estate').removeClass('current');
     current_pos_index = 2;
+    animation_start_target = current;
+    animation_start_time = -1;
   }
 
   function goto_red_estate() {
@@ -353,6 +376,8 @@ if (iOSChromeDetected) {
     $('#progress-goto-linn').removeClass('current');
     $('#progress-goto-red-estate').addClass('current');
     current_pos_index = 3;
+    animation_start_target = current;
+    animation_start_time = -1;
   }
 
   $('#goto-planet').click(function (event) {
