@@ -99,7 +99,8 @@ html, body {
 }
 
 button {
-    padding: 0; 
+  cursor: pointer;
+  padding: 0; 
 }
 
 .fake-scroll {
